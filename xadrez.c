@@ -1,32 +1,200 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
-
 int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+    int direcao_torre;
+    int casas_torre;
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+    int direcao_bispo;
+    int casas_bispo;
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+    int direcao_rainha;
+    int casas_rainha;
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    int incremento;
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+    printf("\n --- Movimentando peças de Xadrez\n\n");
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    printf(" ===== Peça: Torre ===== \n");
+    printf("1 - Direita\n");
+    printf("2 - Esquerda\n");
+    printf("3 - Cima\n");
+    printf("4 - Baixo\n");
 
+    printf("Selecione a direção: ");
+    scanf("%d", &direcao_torre);
+
+    printf("\nSelecione o número de casas para mover: ");
+    scanf("%d", &casas_torre);
+    
+    // Lógica de movimentação da torre
+    switch (direcao_torre) {
+        case 1:
+            printf("\nMovendo a torre %d casas para a direita.\n", casas_torre);
+            for (int i = 1; i <= casas_torre; i++) {
+                printf("Direita %d\n", i);
+            }
+            break;
+        case 2:
+            printf("\nMovendo a torre %d casas para a esquerda.\n", casas_torre);
+            for (int i = 1; i <= casas_torre; i++) {
+                printf("Esquerda %d\n", i);
+            }
+            break;
+        case 3:
+            printf("\nMovendo a torre %d casas para cima.\n", casas_torre);
+            for (int i = 1; i <= casas_torre; i++) {
+                printf("Cima %d\n", i);
+            }
+            break;
+        case 4:
+            printf("\nMovendo a torre %d casas para baixo.\n", casas_torre);
+            for (int i = 1; i <= casas_torre; i++) {
+                printf("Baixo %d\n", i);
+            }
+            break;
+        default:
+            printf("Direção inválida!\n");
+            break;
+
+    }
+
+    printf("\n ===== Peça: Bispo ===== \n");
+    printf("1 - Diagonal Superior Direita\n");
+    printf("2 - Diagonal Superior Esquerda\n");
+    printf("3 - Diagonal Inferior Direita\n");
+    printf("4 - Diagonal Inferior Esquerda\n");
+
+    printf("Selecione a direção: ");
+    scanf("%d", &direcao_bispo);
+
+    printf("\nSelecione o número de casas para mover: ");
+    scanf("%d", &casas_bispo);
+
+    // Lógica de movimentação do bispo
+    switch (direcao_bispo) {
+        case 1:
+            printf("\nMovendo o bispo %d casas para a diagonal superior direita.\n", casas_bispo);
+            incremento = 1;
+            while (incremento<=casas_bispo)
+            {
+                printf("Cima, Direita %d\n", incremento);
+                incremento++;
+            }
+            
+            break;
+        case 2:
+            printf("\nMovendo o bispo %d casas para a diagonal superior esquerda.\n", casas_bispo);
+            incremento = 1;
+            while (incremento<=casas_bispo)
+            {
+                printf("Cima, Esquerda %d\n", incremento);
+                incremento++;
+            }
+            break;
+        case 3:
+            printf("\nMovendo o bispo %d casas para a diagonal inferior direita.\n", casas_bispo);
+            incremento = 1;
+            while (incremento<=casas_bispo)
+            {
+                printf("Baixo, Direita %d\n", incremento);
+                incremento++;
+            }
+            break;
+        case 4:
+            printf("\nMovendo o bispo %d casas para a diagonal inferior esquerda.\n", casas_bispo);
+            incremento = 1;
+            while (incremento<=casas_bispo)
+            {
+                printf("Baixo, Esquerda %d\n", incremento);
+                incremento++;
+            }
+            break;
+        default:
+            printf("Direção inválida!\n");
+            break;
+    }
+
+    printf("\n ===== Peça: Rainha ===== \n");
+    printf("1 - Direita\n");
+    printf("2 - Esquerda\n");
+    printf("3 - Cima\n");
+    printf("4 - Baixo\n");
+    printf("5 - Diagonal Superior Direita\n");
+    printf("6 - Diagonal Superior Esquerda\n");
+    printf("7 - Diagonal Inferior Direita\n");
+    printf("8 - Diagonal Inferior Esquerda\n");
+
+    printf("Selecione a direção: ");
+    scanf("%d", &direcao_rainha);
+
+    printf("\nSelecione o número de casas para mover: ");
+    scanf("%d", &casas_rainha);
+
+    // Lógica de movimentação da rainha
+    switch (direcao_rainha) {
+        case 1:
+            printf("\nMovendo a rainha %d casas para a direita.\n", casas_rainha);
+            do {
+                printf("Direita %d\n", casas_rainha);
+                casas_rainha--;
+            } while (casas_rainha > 0);
+            break;
+        case 2:
+            printf("\nMovendo a rainha %d casas para a esquerda.\n", casas_rainha);
+            do {
+                printf("Esquerda %d\n", casas_rainha);
+                casas_rainha--;
+            } while (casas_rainha > 0);
+            break;
+        case 3:
+            printf("\nMovendo a rainha %d casas para cima.\n", casas_rainha);
+            do {
+                printf("Cima %d\n", casas_rainha);
+                casas_rainha--;
+            } while (casas_rainha > 0);
+            break;
+        case 4:
+            printf("\nMovendo a rainha %d casas para baixo.\n", casas_rainha);
+            do {
+                printf("Baixo %d\n", casas_rainha);
+                casas_rainha--;
+            } while (casas_rainha > 0);
+            break;
+        case 5:
+            printf("\nMovendo a rainha %d casas para a diagonal superior direita.\n", casas_rainha);
+            do {
+                printf("Cima, Direita %d\n", casas_rainha);
+                casas_rainha--;
+            } while (casas_rainha > 0);
+            break;
+        case 6:
+            printf("\nMovendo a rainha %d casas para a diagonal superior esquerda.\n", casas_rainha);
+            do{
+                printf("Cima, Esquerda %d\n", casas_rainha);
+                casas_rainha--;
+            } while (casas_rainha > 0);
+            
+            break;
+        case 7:
+            printf("\nMovendo a rainha %d casas para a diagonal inferior direita.\n", casas_rainha);
+            do {
+                printf("Baixo, Direita %d\n", casas_rainha);
+                casas_rainha--;
+            } while (casas_rainha > 0);
+            break;
+        case 8:
+            printf("\nMovendo a rainha %d casas para a diagonal inferior esquerda.\n", casas_rainha);
+            do {
+                printf("Baixo, Esquerda %d\n", casas_rainha);
+                casas_rainha--;
+            } while (casas_rainha > 0);
+            break;
+        default:
+            printf("Direção inválida!\n");
+            break;
+
+    }
+    
     return 0;
 }
