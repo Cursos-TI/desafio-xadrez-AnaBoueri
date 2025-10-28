@@ -1,5 +1,69 @@
 #include <stdio.h>
 
+// MOVER TORRE RECURSIVO
+void moverTorre(int casas, int direcao) {
+
+    //Define a direção em formato de string para facilitar a impressão
+    const char* direcaoStr;
+    switch (direcao) {
+        case 1: direcaoStr = "Direita"; break;
+        case 2: direcaoStr = "Esquerda"; break;
+        case 3: direcaoStr = "Cima"; break;
+        case 4: direcaoStr = "Baixo"; break;
+        default: 
+            printf("Direção inválida!\n");
+            return;
+    }
+    //Chama a função recursivamente
+    if (casas > 0) {
+        printf("%s\n", direcaoStr);
+        moverTorre(casas - 1, direcao);
+    }
+}
+
+// MOVER BISPO RECURSIVO
+void moverBispo(int casas, int direcao) {
+    //Define a direção em formato de string para facilitar a impressão
+    const char* direcaoStr;
+    switch (direcao) {
+        case 1: direcaoStr = "Cima, Direita"; break;
+        case 2: direcaoStr = "Cima, Esquerda"; break;
+        case 3: direcaoStr = "Baixo, Direita"; break;
+        case 4: direcaoStr = "Baixo, Esquerda"; break;
+        default: 
+            printf("Direção inválida!\n");
+            return;
+    }
+    //Chama a função recursivamente
+    if (casas > 0) {
+        printf("%s\n", direcaoStr);
+        moverBispo(casas - 1, direcao);
+    }
+}
+
+void moverRainha(int casas, int direcao) {
+    //Define a direção em formato de string para facilitar a impressão
+    const char* direcaoStr;
+    switch (direcao) {
+        case 1: direcaoStr = "Direita"; break;
+        case 2: direcaoStr = "Esquerda"; break;
+        case 3: direcaoStr = "Cima"; break;
+        case 4: direcaoStr = "Baixo"; break;
+        case 5: direcaoStr = "Cima, Direita"; break;
+        case 6: direcaoStr = "Cima, Esquerda"; break;
+        case 7: direcaoStr = "Baixo, Direita"; break;
+        case 8: direcaoStr = "Baixo, Esquerda"; break;
+        default: 
+            printf("Direção inválida!\n");
+            return;
+    }
+    //Chama a função recursivamente
+    if (casas > 0) {
+        printf("%s\n", direcaoStr);
+        moverRainha(casas - 1, direcao);
+    }
+}
+
 int main() {
 
     int direcao_torre;
@@ -17,6 +81,7 @@ int main() {
 
     printf("\n --- Movimentando peças de Xadrez\n\n");
 
+    // --------------------- TORRE ----------------------------
     printf(" ===== Peça: Torre ===== \n");
     printf("1 - Direita\n");
     printf("2 - Esquerda\n");
@@ -29,37 +94,11 @@ int main() {
     printf("\nSelecione o número de casas para mover: ");
     scanf("%d", &casas_torre);
     
-    // Lógica de movimentação da torre
-    switch (direcao_torre) {
-        case 1:
-            printf("\nMovendo a torre %d casas para a direita.\n", casas_torre);
-            for (int i = 1; i <= casas_torre; i++) {
-                printf("Direita %d\n", i);
-            }
-            break;
-        case 2:
-            printf("\nMovendo a torre %d casas para a esquerda.\n", casas_torre);
-            for (int i = 1; i <= casas_torre; i++) {
-                printf("Esquerda %d\n", i);
-            }
-            break;
-        case 3:
-            printf("\nMovendo a torre %d casas para cima.\n", casas_torre);
-            for (int i = 1; i <= casas_torre; i++) {
-                printf("Cima %d\n", i);
-            }
-            break;
-        case 4:
-            printf("\nMovendo a torre %d casas para baixo.\n", casas_torre);
-            for (int i = 1; i <= casas_torre; i++) {
-                printf("Baixo %d\n", i);
-            }
-            break;
-        default:
-            printf("Direção inválida!\n");
-            break;
+    //chamando a função de mover torre recursivamente
+    printf("\nMovendo a torre %d vezes.\n", casas_torre);
+    moverTorre(casas_torre, direcao_torre);
 
-    }
+    // --------------------- BISPO ----------------------------
 
     printf("\n ===== Peça: Bispo ===== \n");
     printf("1 - Diagonal Superior Direita\n");
@@ -73,50 +112,10 @@ int main() {
     printf("\nSelecione o número de casas para mover: ");
     scanf("%d", &casas_bispo);
 
-    // Lógica de movimentação do bispo
-    switch (direcao_bispo) {
-        case 1:
-            printf("\nMovendo o bispo %d casas para a diagonal superior direita.\n", casas_bispo);
-            incremento = 1;
-            while (incremento<=casas_bispo)
-            {
-                printf("Cima, Direita %d\n", incremento);
-                incremento++;
-            }
-            
-            break;
-        case 2:
-            printf("\nMovendo o bispo %d casas para a diagonal superior esquerda.\n", casas_bispo);
-            incremento = 1;
-            while (incremento<=casas_bispo)
-            {
-                printf("Cima, Esquerda %d\n", incremento);
-                incremento++;
-            }
-            break;
-        case 3:
-            printf("\nMovendo o bispo %d casas para a diagonal inferior direita.\n", casas_bispo);
-            incremento = 1;
-            while (incremento<=casas_bispo)
-            {
-                printf("Baixo, Direita %d\n", incremento);
-                incremento++;
-            }
-            break;
-        case 4:
-            printf("\nMovendo o bispo %d casas para a diagonal inferior esquerda.\n", casas_bispo);
-            incremento = 1;
-            while (incremento<=casas_bispo)
-            {
-                printf("Baixo, Esquerda %d\n", incremento);
-                incremento++;
-            }
-            break;
-        default:
-            printf("Direção inválida!\n");
-            break;
-    }
+    moverBispo(casas_bispo, direcao_bispo);
 
+    // --------------------- RAINHA ----------------------------
+    
     printf("\n ===== Peça: Rainha ===== \n");
     printf("1 - Direita\n");
     printf("2 - Esquerda\n");
@@ -133,70 +132,9 @@ int main() {
     printf("\nSelecione o número de casas para mover: ");
     scanf("%d", &casas_rainha);
 
-    // Lógica de movimentação da rainha
-    switch (direcao_rainha) {
-        case 1:
-            printf("\nMovendo a rainha %d casas para a direita.\n", casas_rainha);
-            do {
-                printf("Direita %d\n", casas_rainha);
-                casas_rainha--;
-            } while (casas_rainha > 0);
-            break;
-        case 2:
-            printf("\nMovendo a rainha %d casas para a esquerda.\n", casas_rainha);
-            do {
-                printf("Esquerda %d\n", casas_rainha);
-                casas_rainha--;
-            } while (casas_rainha > 0);
-            break;
-        case 3:
-            printf("\nMovendo a rainha %d casas para cima.\n", casas_rainha);
-            do {
-                printf("Cima %d\n", casas_rainha);
-                casas_rainha--;
-            } while (casas_rainha > 0);
-            break;
-        case 4:
-            printf("\nMovendo a rainha %d casas para baixo.\n", casas_rainha);
-            do {
-                printf("Baixo %d\n", casas_rainha);
-                casas_rainha--;
-            } while (casas_rainha > 0);
-            break;
-        case 5:
-            printf("\nMovendo a rainha %d casas para a diagonal superior direita.\n", casas_rainha);
-            do {
-                printf("Cima, Direita %d\n", casas_rainha);
-                casas_rainha--;
-            } while (casas_rainha > 0);
-            break;
-        case 6:
-            printf("\nMovendo a rainha %d casas para a diagonal superior esquerda.\n", casas_rainha);
-            do{
-                printf("Cima, Esquerda %d\n", casas_rainha);
-                casas_rainha--;
-            } while (casas_rainha > 0);
-            
-            break;
-        case 7:
-            printf("\nMovendo a rainha %d casas para a diagonal inferior direita.\n", casas_rainha);
-            do {
-                printf("Baixo, Direita %d\n", casas_rainha);
-                casas_rainha--;
-            } while (casas_rainha > 0);
-            break;
-        case 8:
-            printf("\nMovendo a rainha %d casas para a diagonal inferior esquerda.\n", casas_rainha);
-            do {
-                printf("Baixo, Esquerda %d\n", casas_rainha);
-                casas_rainha--;
-            } while (casas_rainha > 0);
-            break;
-        default:
-            printf("Direção inválida!\n");
-            break;
+    moverRainha(casas_rainha, direcao_rainha);
 
-    }
+    // --------------------- CAVALO ----------------------------
 
     printf("\n ===== Peça: Cavalo ===== \n");
     printf("Selecione a direção do movimento em 'L' do cavalo:\n");
