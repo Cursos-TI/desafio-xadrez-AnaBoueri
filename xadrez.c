@@ -11,6 +11,8 @@ int main() {
     int direcao_rainha;
     int casas_rainha;
 
+    int direcao_cavalo;
+
     int incremento;
 
     printf("\n --- Movimentando peças de Xadrez\n\n");
@@ -194,6 +196,83 @@ int main() {
             printf("Direção inválida!\n");
             break;
 
+    }
+
+    printf("\n ===== Peça: Cavalo ===== \n");
+    printf("Selecione a direção do movimento em 'L' do cavalo:\n");
+    printf("1 - Duas casas para baixo e uma para esquerda\n");
+    printf("2 - Duas casas para baixo e uma para direita\n");
+    printf("3 - Duas casas para cima e uma para esquerda\n");
+    printf("4 - Duas casas para cima e uma para direita\n");
+
+    printf("Selecione a direção: ");
+    scanf("%d", &direcao_cavalo);
+
+    // Lógica de movimentação do cavalo
+    switch(direcao_cavalo) {
+        case 1:
+            printf("\nMovendo o cavalo duas vezes para baixo e uma para esquerda.\n");
+            int movimentoCavalo = 1; 
+            int movimentoLateral = 0;
+            for (movimentoCavalo; movimentoCavalo >= 1; movimentoCavalo--) {
+                
+                while(movimentoLateral < 2) {
+                    printf("Baixo %d\n", movimentoLateral + 1);
+                    movimentoLateral++;
+
+                }
+                printf("Esquerda 1\n");
+            }
+            break;
+        
+        case 2:
+            printf("\nMovendo o cavalo duas vezes para baixo e uma para direita.\n");
+            movimentoCavalo = 1; 
+            movimentoLateral = 0;
+            for (movimentoCavalo; movimentoCavalo >= 1; movimentoCavalo--) {
+                
+                while(movimentoLateral < 2) {
+                    printf("Baixo %d\n", movimentoLateral + 1);
+                    movimentoLateral++;
+
+                }
+                printf("Direita 1\n");
+            }
+            break;
+
+        case 3:
+            printf("\nMovendo o cavalo duas vezes para cima e uma para esquerda.\n");
+            movimentoCavalo = 1; 
+            movimentoLateral = 0;
+            for (movimentoCavalo; movimentoCavalo >= 1; movimentoCavalo--) {
+                
+                while(movimentoLateral < 2) {
+                    printf("Cima %d\n", movimentoLateral + 1);
+                    movimentoLateral++;
+
+                }
+                printf("Esquerda 1\n");
+            }
+            break;
+
+        case 4:
+            printf("\nMovendo o cavalo duas vezes para cima e uma para direita.\n");
+            movimentoCavalo = 1;
+            movimentoLateral = 0;
+            for (movimentoCavalo; movimentoCavalo >= 1; movimentoCavalo--) {
+                
+                while(movimentoLateral < 2) {
+                    printf("Cima %d\n", movimentoLateral + 1);
+                    movimentoLateral++;
+
+                }
+                printf("Direita 1\n");
+            }
+            break;
+        default:
+            printf("Direção inválida!\n");
+            break;
+        
     }
     
     return 0;
